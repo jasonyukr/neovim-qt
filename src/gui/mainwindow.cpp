@@ -69,8 +69,13 @@ void MainWindow::init(NeovimConnector *c)
 	layout->addWidget(m_scrollbar);
 	shellScrollable->setLayout(layout);
 
-	// hide the title bar
-	this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+	char *hide_titlebar = getenv("NVIM_QT_HIDE_TITLEBAR");
+	if (hide_titlebar != NULL) {
+		if (!strcmp(hide_titlebar, "true") || !strcmp(hide_titlebar, "TRUE")) {
+			// hide the title bar
+			this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+		}
+	}
 
 	m_window = new QSplitter();
 	m_window->addWidget(m_tree);
