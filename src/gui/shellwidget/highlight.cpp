@@ -22,6 +22,8 @@ HighlightAttribute::HighlightAttribute(const QVariantMap& rgb_attr) noexcept
 	m_reverse = rgb_attr.contains("reverse");
 	m_italic = rgb_attr.contains("italic");
 	m_bold = rgb_attr.contains("bold");
+	// Hack to disable bold font display
+	m_bold = false;
 	m_underline = rgb_attr.contains("underline");
 	m_undercurl = rgb_attr.contains("undercurl");
 	m_strikethrough = rgb_attr.contains("strikethrough");
