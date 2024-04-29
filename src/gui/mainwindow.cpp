@@ -61,9 +61,10 @@ void MainWindow::init(NeovimConnector *c)
 	// ShellWidget + GuiScrollBar Layout
 	// QSplitter does not allow layouts directly: QWidget { HLayout { ShellWidget, QScrollBar } }
 	QWidget* shellScrollable{ new QWidget() };
+	shellScrollable->setStyleSheet("background-color:#1d1f20;");
 	QHBoxLayout* layout{ new QHBoxLayout() };
 	layout->setSpacing(0);
-	layout->setContentsMargins(0, 0, 0, 0);
+	layout->setContentsMargins(5, 5, 5, 5);
 	layout->addWidget(m_shell);
 	layout->addWidget(m_scrollbar);
 	shellScrollable->setLayout(layout);
