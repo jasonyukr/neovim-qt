@@ -69,6 +69,9 @@ void MainWindow::init(NeovimConnector *c)
 	layout->addWidget(m_scrollbar);
 	shellScrollable->setLayout(layout);
 
+	// hide the title bar
+	this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
 	m_window = new QSplitter();
 	m_window->addWidget(m_tree);
 	m_window->addWidget(shellScrollable);
