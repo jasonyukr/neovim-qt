@@ -358,6 +358,8 @@ QFont ShellWidget::GetCellFont(const Cell& cell) const noexcept
 
 	if (cell.IsBold() && renderFontAttr()) {
 		cellFont.setBold(cell.IsBold());
+		// Use QFont::DemiBold instead of the default value (QFont::Bold)
+		cellFont.setWeight(QFont::DemiBold);
 	}
 
 	if (cell.IsItalic() && renderFontAttr()) {
@@ -1071,6 +1073,8 @@ QVariant ShellWidget::TryGetQFontFromDescription(const QString& fdesc) const noe
 	fi.setItalic(true);
 	QFont fb(f);
 	fb.setBold(true);
+	// Use QFont::DemiBold instead of the default value (QFont::Bold)
+	fb.setWeight(QFont::DemiBold);
 	QFont fbi(fb);
 	fbi.setItalic(true);
 

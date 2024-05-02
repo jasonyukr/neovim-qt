@@ -38,6 +38,8 @@ void printFontMetrics(const QFont& f)
 	QFontMetrics fm_italic(fi);
 	QFont fb(f);
 	fb.setBold(true);
+	// Use QFont::DemiBold instead of the default value (QFont::Bold)
+	fb.setWeight(QFont::DemiBold);
 	QFontMetrics fm_bold(fb);
 	QFont fbi(fb);
 	fbi.setItalic(true);
